@@ -24,13 +24,14 @@ function clearFormData() {
   localStorage.removeItem('feedback-form-state');
   formData = { email: '', message: '' };
   document.querySelector('input[name="email"]').value = '';
-  document.querySelector('textarea[name="message"]').value = '';
+  document.querySelector('textarea[name="message"]').value.trim() = '';
 }
 
 function populateFormField() {
   const formDataFromLS = localStorage.getItem(LS_KEY);
 
   if (!formDataFromLS) return;
+  
 
   const parsedData = JSON.parse(formDataFromLS);
   emailEl.value = parsedData.email || '';
