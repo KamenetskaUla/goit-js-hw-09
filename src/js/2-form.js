@@ -12,7 +12,7 @@ function onSaveData(event) {
 function onFormSubmit(event) {
   event.preventDefault();
   if (
-    emailEl.value.trim() === '' ||
+    emailEl.value === '' ||
     textareaEl.value.trim() === '' ||
     /^[ ]+$/.test(textareaEl.value)
   ) {
