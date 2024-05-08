@@ -14,7 +14,7 @@ function onFormSubmit(event) {
   if (
     emailEl.value.trim() === '' ||
     textareaEl.value.trim() === '' ||
-    !/^[ ]+$/.test(textareaEl.value)
+    /^[ ]+$/.test(textareaEl.value)
   ) {
     alert('Please fill in all fields');
   } else {
