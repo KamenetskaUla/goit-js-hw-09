@@ -6,7 +6,7 @@ const LS_KEY = 'feedback-form-state';
 formEl.addEventListener('input', onSaveData);
 formEl.addEventListener('submit', onFormSubmit);
 function onSaveData(event) {
-  formData[event.target.name] = event.target.value.trim();
+  formData[event.target.name] = event.target.value;
   localStorage.setItem(LS_KEY, JSON.stringify(formData));
 }
 function onFormSubmit(event) {
@@ -14,7 +14,7 @@ function onFormSubmit(event) {
   if (
     emailEl.value.trim() === '' ||
     textareaEl.value.trim() === '' ||
-    /^[ ]+$/.test(textareaEl.value)
+    !/^[ ]+$/.test(textareaEl.value)
   ) {
     alert('Please fill in all fields');
   } else {
