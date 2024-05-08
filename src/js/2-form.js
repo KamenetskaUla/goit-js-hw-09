@@ -13,12 +13,18 @@ function onFormSubmit(event) {
   event.preventDefault();
   if (emailEl.value === '' || textareaEl.value === '') {
     alert('Please fill in all fields');
-    return;
+  } else {
+    console.log(formData);
+    clearFormData();
   }
-  event.currentTarget.reset();
 
-  localStorage.removeItem(LS_KEY);
-  console.log(formData);
+  event.currentTarget.reset();
+}
+function clearFormData() {
+  localStorage.removeItem('feedback-form-state');
+  formData = { email: '', message: '' };
+  document.querySelector('input[name="email"]').value = '';
+  document.querySelector('textarea[name="message"]').value = '';
 }
 
 function populateFormField() {
