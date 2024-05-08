@@ -11,7 +11,7 @@ function onSaveData(event) {
 }
 function onFormSubmit(event) {
   event.preventDefault();
-  if (emailEl.value === '' || textareaEl.value === '') {
+  if (emailEl.value.trim() === '' || textareaEl.value.trim() === '') {
     alert('Please fill in all fields');
   } else {
     console.log(formData);
@@ -24,14 +24,13 @@ function clearFormData() {
   localStorage.removeItem('feedback-form-state');
   formData = { email: '', message: '' };
   document.querySelector('input[name="email"]').value = '';
-  document.querySelector('textarea[name="message"]').value.trim() = '';
+  document.querySelector('textarea[name="message"]').value = '';
 }
 
 function populateFormField() {
   const formDataFromLS = localStorage.getItem(LS_KEY);
 
   if (!formDataFromLS) return;
-  
 
   const parsedData = JSON.parse(formDataFromLS);
   emailEl.value = parsedData.email || '';
