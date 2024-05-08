@@ -11,7 +11,7 @@ function onSaveData(event) {
 }
 function onFormSubmit(event) {
   event.preventDefault();
-  if (emailEl.value.trim() === '' || textareaEl.value.trim() === '') {
+  if (emailEl.value.trim() === '' || textareaEl.value.trim() === '') || /^[ ]+$/.test(emailEl.value) || /^[ ]+$/.test(textareaEl.value) {
     alert('Please fill in all fields');
   } else {
     console.log(formData);
