@@ -6,7 +6,7 @@ const LS_KEY = 'feedback-form-state';
 formEl.addEventListener('input', onSaveData);
 formEl.addEventListener('submit', onFormSubmit);
 function onSaveData(event) {
-  formData[event.target.name] = event.target.value;
+  formData[event.target.name] = event.target.value.trim();
   localStorage.setItem(LS_KEY, JSON.stringify(formData));
 }
 function onFormSubmit(event) {
