@@ -1,4 +1,4 @@
-const formData = { email: '', message: '' };
+let formData = { email: '', message: '' };
 const formEl = document.querySelector('.feedback-form');
 const emailEl = document.querySelector("input[name='email']");
 const textareaEl = document.querySelector("textarea[name='message']");
@@ -11,18 +11,13 @@ function onSaveData(event) {
 }
 function onFormSubmit(event) {
   event.preventDefault();
-  if (
-    emailEl.value === '' ||
-    textareaEl.value.trim() === '' ||
-    /^[ ]+$/.test(textareaEl.value)
-  ) {
+  if (emailEl.value.trim() === '' || textareaEl.value.trim() === '') {
     alert('Please fill in all fields');
   } else {
     console.log(formData);
+    event.currentTarget.reset();
     clearFormData();
   }
-
-  event.currentTarget.reset();
 }
 function clearFormData() {
   localStorage.removeItem('feedback-form-state');
